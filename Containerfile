@@ -9,6 +9,7 @@ RUN apk add \
 	# utilities
 	doas \
 	git \
+	chezmoi \
 	# workflow
 	fish \
 	neovim
