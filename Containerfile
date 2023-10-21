@@ -13,6 +13,8 @@ RUN apk add \
 	chezmoi \
 	# workflow
 	fish \
+	zoxide \
+	fzf \
 	neovim
 
 RUN echo "permit persist :wheel" >> /etc/doas.d/doas.conf
