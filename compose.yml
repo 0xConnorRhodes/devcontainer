@@ -12,6 +12,7 @@ services:
     hostname: "devct"
     volumes:
       - devct_persist:/home/connor/.local/share
+      - ${HOME}:/out
 
 volumes:
   devct_persist:
