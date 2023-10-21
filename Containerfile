@@ -18,7 +18,8 @@ RUN apk add \
 	neovim
 
 RUN echo "permit persist :wheel" >> /etc/doas.d/doas.conf
-RUN adduser -D -G wheel connor && \
+RUN adduser -D connor && \
+	addgroup connor wheel && \
 	echo "connor:$PASS" | chpasswd
 
 USER connor
