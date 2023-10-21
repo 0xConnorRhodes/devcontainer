@@ -8,6 +8,8 @@ RUN apk add \
 	# utilities
 	doas \
 	git \
+	openssh-keygen \
+	openssh-client \
 	chezmoi \
 	# workflow
 	fish \
