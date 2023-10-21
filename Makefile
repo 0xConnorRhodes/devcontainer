@@ -7,4 +7,4 @@ build:
 	docker compose up -d --force-recreate
 
 shell:
-	docker exec -it devct /bin/ash
+	docker exec -it devct su -c /usr/bin/fish - connor

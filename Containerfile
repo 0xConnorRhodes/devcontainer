@@ -5,7 +5,10 @@ ARG PASS
 RUN apk update && apk upgrade
 
 RUN apk add \
-	doas
+	# utilities
+	doas \
+	# workflow
+	fish
 
 RUN echo "permit persist :wheel" >> /etc/doas.d/doas.conf
 RUN adduser -D -G wheel connor && \
