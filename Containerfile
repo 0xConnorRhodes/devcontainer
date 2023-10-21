@@ -4,7 +4,6 @@ ARG PASS
 USER root
 
 RUN apk update && apk upgrade
-
 RUN apk add \
 	# utilities
 	doas \
