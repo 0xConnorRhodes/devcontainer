@@ -5,6 +5,8 @@ services:
     build:
       context: .
       dockerfile: Containerfile
+      args:
+        PASS: ${PASS}
     image: devct
     container_name: devct
     hostname: "devct"
