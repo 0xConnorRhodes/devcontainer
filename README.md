@@ -12,3 +12,5 @@ Interactive software development and DevOps container environment
 
 4. Rebuild container to allow programs to save their state onto the newly created volumes.
 5. Generate ssh keys: `ssh-keygen -a 100 -t ed25519 -C "user@email"`
+6. run `chezmoi init --apply 0xconnorrhodes` to pull and apply dotfiles
+7. configure chezmoi repo to push over ssh by replacing the `url` line in `.git/config` with the ssh url from your dotfiles repo
