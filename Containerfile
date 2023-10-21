@@ -11,6 +11,7 @@ RUN apk add \
 	openssh-keygen \
 	openssh-client \
 	chezmoi \
+	mosh \
 	# workflow
 	fish \
 	zoxide \
