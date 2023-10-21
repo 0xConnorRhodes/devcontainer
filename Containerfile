@@ -22,6 +22,5 @@ USER connor
 RUN mkdir $HOME/.local
 
 USER root
-
 # basic entrypoint to keep container running
 CMD ["tail", "-f", "/dev/null"]
