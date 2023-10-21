@@ -11,9 +11,12 @@ services:
     container_name: devct
     hostname: "devct"
     volumes:
-      - devct_persist:/home/connor/.local/share
+      - local_share:/home/connor/.local/share
+      - ssh:/home/connor/.ssh
       - ${HOME}:/out
 
 volumes:
-  devct_persist:
-    name: "devct_persist"
+  local_share:
+    name: "devct_local_share"
+  ssh:
+    name: "devct_ssh"
