@@ -12,6 +12,9 @@ RUN apk add \
 	openssh-client \
 	chezmoi \
 	mosh \
+	# python
+	python3 \
+	py3-pip \
 	# workflow
 	fish \
 	zoxide \
@@ -25,6 +28,8 @@ RUN adduser -D connor && \
 
 USER connor
 RUN mkdir $HOME/.local
+RUN pip install --user pipx
+RUN $HOME/.local/bin/pipx install yt-dlp
 
 USER root
 # basic entrypoint to keep container running
