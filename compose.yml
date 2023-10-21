@@ -13,7 +13,7 @@ services:
     volumes:
       - local_share:/home/connor/.local/share
       - ssh:/home/connor/.ssh
-      - ${HOME}/out:/home/connor/out
+      - ${HOME}:/out
 
 volumes:
   local_share:
