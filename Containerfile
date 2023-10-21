@@ -8,8 +8,10 @@ RUN apk update && apk upgrade
 RUN apk add \
 	# utilities
 	doas \
+	git \
 	# workflow
-	fish
+	fish \
+	neovim
 
 RUN echo "permit persist :wheel" >> /etc/doas.d/doas.conf
 RUN adduser -D -G wheel connor && \
