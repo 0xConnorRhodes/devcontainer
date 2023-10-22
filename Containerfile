@@ -18,6 +18,8 @@ RUN apt-get install -y \
 	locales \
 	psmisc \
 	ffmpeg \
+	bat \
+	ripgrep \
    # python
 	python3 \
 	python3-pip \
@@ -33,6 +35,7 @@ RUN apt-get install -y \
 	rsync \
 	curl \
 	wget \
+	aria2 \
    # dev tools
 	git \
 	jq \
