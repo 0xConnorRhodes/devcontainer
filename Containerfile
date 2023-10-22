@@ -27,6 +27,7 @@ RUN apk add \
 	screen \
 	fd \
 	ripgrep \
+	bat \
 	neovim
 
 RUN echo "permit persist :wheel" >> /etc/doas.d/doas.conf
