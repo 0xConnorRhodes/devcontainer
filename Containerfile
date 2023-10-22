@@ -12,6 +12,11 @@ RUN apk add \
 	openssh-client \
 	chezmoi \
 	mosh \
+	# networking
+	rsync \
+	wget \
+	curl \
+	mtr \
 	# python
 	python3 \
 	py3-pip \
@@ -19,6 +24,7 @@ RUN apk add \
 	fish \
 	zoxide \
 	fzf \
+	screen \
 	neovim
 
 RUN echo "permit persist :wheel" >> /etc/doas.d/doas.conf
