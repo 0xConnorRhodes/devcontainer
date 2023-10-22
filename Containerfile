@@ -5,7 +5,7 @@ ARG USERNAME
 USER root
 
 RUN apk update && apk upgrade
-RUN apk add \
+RUN apk add --no-cache \
 	# utilities
 	doas \
 	git \
