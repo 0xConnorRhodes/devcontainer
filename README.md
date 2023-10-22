@@ -6,8 +6,8 @@ Interactive software development and DevOps container environment
 2. Clone repo and build image (see Makefile)
 3. On first launch, run: 
    ```bash
-   doas chown -R connor:wheel ~/.ssh
-   doas chown -R connor:wheel ~/.local
+   doas chown -R $USER:$USER ~/.ssh
+   doas chown -R $USER:$USER ~/.local
    ```
 
 4. Rebuild container to allow programs to save their state onto the newly created volumes.
