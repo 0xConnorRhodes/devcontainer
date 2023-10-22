@@ -15,7 +15,7 @@ RUN apk add \
 	# networking
 	rsync \
 	curl \
-	aria2c \
+	aria2 \
 	# python
 	python3 \
 	py3-pip \
@@ -24,6 +24,8 @@ RUN apk add \
 	zoxide \
 	fzf \
 	screen \
+	fd \
+	ripgrep \
 	neovim
 
 RUN echo "permit persist :wheel" >> /etc/doas.d/doas.conf
