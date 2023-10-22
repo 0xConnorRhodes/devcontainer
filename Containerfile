@@ -1,6 +1,5 @@
 FROM alpine:latest
 
-ARG PASS
 USER root
 
 RUN apk update && apk upgrade
@@ -29,9 +28,7 @@ RUN apk add \
 	neovim
 
 RUN echo "permit persist :wheel" >> /etc/doas.d/doas.conf
-RUN adduser -D connor && \
-	addgroup connor wheel && \
-	echo "connor:$PASS" | chpasswd
+RUN adduser -D connor && addgroup connor wheel
 
 USER connor
 RUN mkdir $HOME/.local

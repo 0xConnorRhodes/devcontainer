@@ -1,3 +1,6 @@
+include .env
+export
+
 all: build shell
 
 build:
@@ -7,6 +10,7 @@ ifeq (, $(shell which podman))
 	docker image rm -f devct
 	docker compose down
 	docker compose up -d --force-recreate
+	docker exec -it devct sh -c "echo $$USERNAME:$$PASS | chpasswd"
 	docker exec -it devct su -c "chezmoi apply" - connor
 else
 	@echo "Using Podman"
@@ -14,6 +18,7 @@ else
 	podman image rm -f devct
 	podman-compose down
 	podman-compose up -d --force-recreate
+	podman exec -it devct sh -c "echo $$USERNAME:$$PASS | chpasswd"
 	podman exec -it devct su -c "chezmoi apply" - connor
 endif
 
