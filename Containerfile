@@ -64,7 +64,6 @@ USER $USERNAME
 
 # install python utilities
 RUN pipx install yt-dlp
-RUN pipx install bpython
 RUN sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
 
 USER root
