@@ -39,5 +39,3 @@ RUN pip install --user pipx
 RUN $HOME/.local/bin/pipx install yt-dlp
 
 USER root
-# basic entrypoint to keep container running
-CMD ["tail", "-f", "/dev/null"]
