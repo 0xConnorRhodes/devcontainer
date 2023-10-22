@@ -13,6 +13,7 @@ RUN apk add \
 	openssh-client \
 	chezmoi \
 	mosh \
+	ffmpeg \
 	# networking
 	rsync \
 	curl \
