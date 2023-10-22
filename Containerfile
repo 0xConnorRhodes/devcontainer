@@ -14,9 +14,8 @@ RUN apk add \
 	mosh \
 	# networking
 	rsync \
-	wget \
 	curl \
-	mtr \
+	aria2c \
 	# python
 	python3 \
 	py3-pip \
