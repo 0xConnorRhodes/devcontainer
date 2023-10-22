@@ -1,5 +1,7 @@
 FROM alpine:latest
 
+ARG USERNAME
+
 USER root
 
 RUN apk update && apk upgrade
@@ -28,9 +30,9 @@ RUN apk add \
 	neovim
 
 RUN echo "permit persist :wheel" >> /etc/doas.d/doas.conf
-RUN adduser -D connor && addgroup connor wheel
+RUN adduser -D $USERNAME && addgroup $USERNAME wheel
 
-USER connor
+USER $USERNAME
 RUN mkdir $HOME/.local
 RUN pip install --user pipx
 RUN $HOME/.local/bin/pipx install yt-dlp
