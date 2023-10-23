@@ -39,6 +39,7 @@ RUN apt-get install -y \
    # dev tools
 	git \
 	jq \
+	hugo \
    # gen workflow
 	screen \
 	fish \
