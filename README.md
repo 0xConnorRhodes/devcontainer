@@ -19,4 +19,4 @@ Interactive software development and DevOps container environment
 Note: upon container retart, run `chezmoi apply` to restore config files from `~/.local/share/chezmoi`
 
 ## Usage
-Run custom screen instance/script from the host with `docker exec -it devct su -c 'screen sh' - <user>`
+Run custom screen instance/script from the host with `docker exec -it devct su -c 'screen <command>' - <user>`
