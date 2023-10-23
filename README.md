@@ -1,7 +1,7 @@
 # DevContainer
 Interactive software development and DevOps container environment
 
-## Initial setup
+## Initial Setup
 1. create a `.env` file in the repo folder in the form of `VAR=value`. The file should include a `USERNAME` and `PASS` key.
 1. Install Docker, Podman, Distrobox, etc. on host machine
 2. Clone repo and build image (see Makefile)
