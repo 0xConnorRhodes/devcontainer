@@ -13,8 +13,9 @@ services:
     command: sh -c "tail -f /dev/null"
     restart: always
     volumes:
-      - local_share:/home/connor/.local/share
-      - ssh:/home/connor/.ssh
+      - local_share:/home/${USERNAME}/.local/share
+      - ssh:/home/${USERNAME}/.ssh
+      - code:/home/${USERNAME}/code
       - ${HOME}:/out
 
 volumes:
@@ -22,3 +23,5 @@ volumes:
     name: "devct_local_share"
   ssh:
     name: "devct_ssh"
+  code:
+    name: "code"
