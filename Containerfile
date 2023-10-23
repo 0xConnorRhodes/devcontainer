@@ -40,6 +40,7 @@ RUN apt-get install -y \
 	git \
 	jq \
 	hugo \
+	tealdeer \
    # gen workflow
 	screen \
 	fish \
@@ -63,7 +64,7 @@ RUN useradd -m $USERNAME && \
 
 USER $USERNAME
 
-# install python utilities
+RUN tldr --update
 RUN pipx install yt-dlp
 RUN sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
 
