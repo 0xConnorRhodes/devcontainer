@@ -68,6 +68,3 @@ RUN pipx install yt-dlp
 RUN sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
 
 USER root
-
-## basic entrypoint to keep container running
-CMD ["tail", "-f", "/dev/null"]
