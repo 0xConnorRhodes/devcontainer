@@ -7,7 +7,7 @@ build:
 ifeq (, $(shell which podman))
 	@echo "Using Docker"
 	docker container rm -f devct
-	docker image rm -f devct
+	#docker image rm -f devct
 	docker compose down
 	docker compose up -d --force-recreate
 	docker exec -it devct sh -c "echo $$USERNAME:$$PASS | chpasswd"
@@ -15,7 +15,7 @@ ifeq (, $(shell which podman))
 else
 	@echo "Using Podman"
 	podman container rm -f devct
-	podman image rm -f devct
+	#podman image rm -f devct
 	podman-compose down
 	podman-compose up -d --force-recreate
 	podman exec -it devct sh -c "echo $$USERNAME:$$PASS | chpasswd"
