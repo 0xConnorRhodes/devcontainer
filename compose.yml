@@ -12,6 +12,8 @@ services:
     hostname: "devct"
     command: sh -c "tail -f /dev/null"
     restart: always
+    ports:
+      - "127.0.0.1:1313:1313" # hugo
     volumes:
       - local_share:/home/${USERNAME}/.local/share
       - ssh:/home/${USERNAME}/.ssh
