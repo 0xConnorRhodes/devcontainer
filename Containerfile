@@ -66,7 +66,7 @@ RUN useradd -m $USERNAME && \
 USER $USERNAME
 
 RUN tldr --update
-RUN cargo install just # TODO: move cargo bin to ~/.local/cargo/bin
+RUN cargo install --root $HOME/.local/cargo just
 RUN pipx install yt-dlp
 RUN sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
 
