@@ -18,5 +18,16 @@ Interactive software development and DevOps container environment
 
 Note: upon container retart, run `chezmoi apply` to restore config files from `~/.local/share/chezmoi`
 
+## Manual package install
+There are some packages that, as of now, I compile once and move the executables to `~/.local/share/bin`. This is to avoid re-compiling them from source every time I remake the image.
+
+#### magic-wormhole-rs
+```bash
+wget <latest-release-version.tar.gz>
+tar xzf
+
+cargo install --path=magic-wormhole.rs-<latest-release-version>/cli
+```
+
 ## Usage
 Run custom screen instance/script from the host with `docker exec -it devct su -c 'screen <command>' - <user>`
