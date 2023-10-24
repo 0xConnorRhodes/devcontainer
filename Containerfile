@@ -20,6 +20,7 @@ RUN apt-get install -y \
 	ffmpeg \
 	bat \
 	ripgrep \
+	cargo \
    # python
 	python3 \
 	python3-pip \
@@ -65,6 +66,7 @@ RUN useradd -m $USERNAME && \
 USER $USERNAME
 
 RUN tldr --update
+RUN cargo install just
 RUN pipx install yt-dlp
 RUN sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
 
