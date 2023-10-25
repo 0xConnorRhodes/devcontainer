@@ -51,6 +51,7 @@ RUN apt-get install -y \
 	zoxide \
 	tree \
 	lf \
+	emacs \
 	neovim
 
 # set locale
