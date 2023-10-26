@@ -29,5 +29,5 @@ ifeq (, $(shell which podman))
 	docker exec -it devct su - $$USERNAME
 else
 	@echo "Using Podman"
-	podman exec -it devct su -c /bin/bash - $$USERNAME
+	podman exec -it devct su - $$USERNAME
 endif
