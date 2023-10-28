@@ -1,13 +1,19 @@
+# TODO: refactor to test for docker/podman and store in a variable to allow for unified build commands
 include .env
 export
 
 all: build shell
 
+rebuild: clean build shell
+
+clean:
+	docker container rm -f devct
+	docker image rm -f devct
+
 build:
 ifeq (, $(shell which podman))
 	@echo "Using Docker"
 	docker container rm -f devct
-	#docker image rm -f devct
 	docker compose down
 	docker compose up -d --force-recreate
 	docker exec -it devct sh -c "echo $$USERNAME:$$PASS | chpasswd"
