@@ -51,7 +51,6 @@ RUN apt-get install -y \
 	zoxide \
 	tree \
 	lf \
-	emacs \
 	neovim
 
 # set locale
@@ -65,9 +64,12 @@ RUN useradd -m $USERNAME && \
 	chsh -s /bin/bash $USERNAME
 
 # copy bootstrap scripts into the container
-RUN mkdir /opt/bootstrap
-COPY bootstrap/* /opt/bootstrap/
-RUN chown -R $USERNAME:$USERNAME /opt/bootstrap
+#RUN mkdir /opt/bootstrap
+#COPY bootstrap/* /opt/bootstrap/
+RUN mkdir /home/$USERNAME/.ssh && chown -R $USERNAME:$USERNAME /home/$USERNAME/.ssh
+RUN mkdir -p /home/$USERNAME/.local/share && chown -R $USERNAME:$USERNAME /home/$USERNAME/.local
+RUN mkdir /home/$USERNAME/code && chown -R $USERNAME:$USERNAME /home/$USERNAME/code
+#RUN chown -R $USERNAME:$USERNAME /opt/bootstrap
 
 
 USER $USERNAME
