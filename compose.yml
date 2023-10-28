@@ -18,8 +18,6 @@ services:
       - local_share:/home/${USERNAME}/.local/share
       - ssh:/home/${USERNAME}/.ssh
       - code:/home/${USERNAME}/code
-      - emacs:/home/${USERNAME}/.emacs.d
-      - doom_emacs:/home/${USERNAME}/.doom.d
       - ${HOME}:/out
 
 volumes:
