@@ -64,6 +64,12 @@ RUN useradd -m $USERNAME && \
 	usermod -a -G sudo $USERNAME && \
 	chsh -s /bin/bash $USERNAME
 
+# copy bootstrap scripts into the container
+RUN mkdir /opt/bootstrap
+COPY bootstrap/* /opt/bootstrap/
+RUN chown -R $USERNAME:$USERNAME /opt/bootstrap
+
+
 USER $USERNAME
 
 RUN tldr --update
