@@ -27,7 +27,3 @@ volumes:
     name: "devct_ssh"
   code:
     name: "code"
-  emacs:
-    name: "devct_emacs"
-  doom_emacs:
-    name: "devct_doom_emacs"
