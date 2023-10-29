@@ -4,11 +4,18 @@ export
 
 all: build shell
 
-rebuild: clean build shell
+run:
+	docker compose down && docker compose up -d --pull --force-recreate 
+
+rebuild:
+	docker container rm -f cloudmacs
+	docker image rm -f cloudmacs
+	docker build -f Containerfile --no-cache .
 
 clean:
 	docker container rm -f devct
 	docker image rm -f devct
+	docker image prune -a
 
 build:
 ifeq (, $(shell which podman))

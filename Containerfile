@@ -42,6 +42,12 @@ RUN apt-get install -y \
 	jq \
 	hugo \
 	tealdeer \
+   # ttyd build dependencies
+	build-essential \
+	cmake \
+	libjson-c-dev \
+	libwebsockets-dev \
+	make \
    # gen workflow
 	screen \
 	fish \
@@ -67,6 +73,7 @@ RUN useradd -m $USERNAME && \
 RUN mkdir /opt/bootstrap
 COPY bootstrap/* /opt/bootstrap/
 RUN /opt/bootstrap/install-magic-wormhole-rs.sh
+RUN /opt/bootstrap/install-ttyd.sh
 
 
 # create volume mount points and set permissions
