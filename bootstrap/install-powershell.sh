@@ -6,7 +6,7 @@ arch=$(uname -m)
 if [ "$arch" = "aarch64" ] || [ "$arch" = "arm64" ]; then
     CPU_ARCHITECTURE="arm64"
 elif [ "$arch" = "x86_64" ]; then
-    CPU_ARCHITECTURE="x86_64"
+    CPU_ARCHITECTURE="x64"
 fi
 
 LATEST_RELEASE_VERSION=$(curl -s https://api.github.com/repos/PowerShell/PowerShell/releases/latest | jq -r '.tag_name')
