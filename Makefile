@@ -7,10 +7,7 @@ all: build shell
 run:
 	docker compose down && docker compose up -d
 
-rebuild:
-	docker container rm -f devct
-	docker image rm -f devct
-	docker build -f Containerfile --no-cache .
+rebuild: clean build shell
 
 clean:
 	docker container rm -f devct
