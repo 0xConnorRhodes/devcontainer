@@ -5,7 +5,7 @@ export
 all: build shell
 
 run:
-	docker compose down && docker compose up -d --pull --force-recreate 
+	docker compose down && docker compose up -d
 
 rebuild:
 	docker container rm -f devct
