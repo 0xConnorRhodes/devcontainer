@@ -43,7 +43,7 @@ RUN apt-get install -y \
 	hugo \
 	tealdeer \
 	make \
-	# needed for screen
+	# needed for powershell
 	libc6 \
    # gen workflow
 	screen \
