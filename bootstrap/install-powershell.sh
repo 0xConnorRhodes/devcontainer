@@ -1,11 +1,17 @@
 #!/bin/bash
 
-
 cd /tmp
+
+arch=$(uname -m)
+if [ "$arch" = "aarch64" ] || [ "$arch" = "arm64" ]; then
+    CPU_ARCHITECTURE="arm64"
+elif [ "$arch" = "x86_64" ]; then
+    CPU_ARCHITECTURE="x86_64"
+fi
 
 LATEST_RELEASE_VERSION=$(curl -s https://api.github.com/repos/PowerShell/PowerShell/releases/latest | jq -r '.tag_name')
 
-curl -L -o /tmp/powershell.tar.gz https://github.com/PowerShell/PowerShell/releases/download/$LATEST_RELEASE_VERSION/powershell-$(echo "$LATEST_RELEASE_VERSION" | tr -d "v")-linux-arm64.tar.gz
+curl -L -o /tmp/powershell.tar.gz https://github.com/PowerShell/PowerShell/releases/download/$LATEST_RELEASE_VERSION/powershell-$(echo "$LATEST_RELEASE_VERSION" | tr -d "v")-linux-$CPU_ARCHITECTURE.tar.gz
 
 # Create the target folder where powershell will be placed
 mkdir -p /opt/microsoft/powershell/7
