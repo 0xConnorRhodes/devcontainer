@@ -43,6 +43,8 @@ RUN apt-get install -y \
 	hugo \
 	tealdeer \
 	make \
+	# needed for screen
+	libc6 \
    # gen workflow
 	screen \
 	fish \
@@ -68,6 +70,8 @@ RUN useradd -m $USERNAME && \
 RUN mkdir /opt/bootstrap
 COPY bootstrap/* /opt/bootstrap/
 RUN /opt/bootstrap/install-magic-wormhole-rs.sh
+RUN /opt/bootstrap/install-powershell.sh
+RUN /opt/bootstrap/setup-powershell.ps1
 
 
 # create volume mount points and set permissions
