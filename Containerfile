@@ -21,6 +21,7 @@ RUN apt-get install -y \
 	bat \
 	ripgrep \
 	cargo \
+	poppler-utils \
    # python
 	python3 \
 	python3-pip \
