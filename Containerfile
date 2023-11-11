@@ -23,6 +23,7 @@ RUN apt-get install -y \
 	cargo \
 	poppler-utils \
 	mediainfo \
+	unzip \
    # python
 	python3 \
 	python3-pip \
@@ -45,6 +46,7 @@ RUN apt-get install -y \
 	hugo \
 	tealdeer \
 	make \
+	tmux \
 	# needed for powershell
 	libc6 \
    # gen workflow
@@ -86,6 +88,7 @@ USER $USERNAME
 
 RUN tldr --update
 RUN cargo install --root $HOME/.local/cargo just
+RUN cargo install --locked --root $HOME/.local/cargo zellij
 RUN pipx install yt-dlp
 RUN sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
 
