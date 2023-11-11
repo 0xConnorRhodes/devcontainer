@@ -22,6 +22,7 @@ RUN apt-get install -y \
 	ripgrep \
 	cargo \
 	poppler-utils \
+	mediainfo \
    # python
 	python3 \
 	python3-pip \
