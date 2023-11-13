@@ -19,6 +19,9 @@ services:
       - ssh:/home/${USERNAME}/.ssh
       - code:/home/${USERNAME}/code
       - ${HOME}:/out
+      - emacs_d:/home/${USERNAME}/.emacs.d
+      - doom_d:/home/${USERNAME}/.doom.d
+
 
 volumes:
   local_share:
@@ -27,3 +30,5 @@ volumes:
     name: "devct_ssh"
   code:
     name: "code"
+  emacs_d:
+  doom_d:

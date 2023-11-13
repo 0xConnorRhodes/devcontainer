@@ -47,6 +47,7 @@ RUN apt-get install -y \
 	tealdeer \
 	make \
 	tmux \
+	emacs \
 	# needed for powershell
 	libc6 \
    # gen workflow
@@ -82,6 +83,10 @@ RUN /opt/bootstrap/setup-powershell.ps1
 RUN mkdir /home/$USERNAME/.ssh && chown -R $USERNAME:$USERNAME /home/$USERNAME/.ssh
 RUN mkdir -p /home/$USERNAME/.local/share && chown -R $USERNAME:$USERNAME /home/$USERNAME/.local
 RUN mkdir /home/$USERNAME/code && chown -R $USERNAME:$USERNAME /home/$USERNAME/code
+
+# emacs
+RUN mkdir /home/ubuntu/.emacs.d && chown -R ubuntu:ubuntu /home/ubuntu/.emacs.d
+RUN mkdir /home/ubuntu/.doom.d && chown -R ubuntu:ubuntu /home/ubuntu/.doom.d
 
 
 USER $USERNAME
