@@ -4,8 +4,7 @@ RUN apt-get update &&  \
     apt-get full-upgrade -y
 
 # install programs
-RUN
-    apt-get install -y \
+RUN apt-get install -y \
     # gen utils
     sudo \
     # gen workflow
