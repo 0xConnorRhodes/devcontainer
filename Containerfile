@@ -55,6 +55,8 @@ RUN echo 'connor:changeme' | chpasswd
 USER connor
 WORKDIR /home/connor
 
+RUN sh <(curl -L https://nixos.org/nix/install) --no-daemon
+RUN nix-env -iA nixpkgs.powershell
 RUN tldr --update
 
 CMD ["/usr/bin/fish"]
