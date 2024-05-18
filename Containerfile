@@ -23,7 +23,7 @@ RUN apt-get install -y \
     # ripgrep \
     # fzf \
     # fd-find \
-    # fish \
+    fish \
     # zoxide \
     # lf \
     neovim
