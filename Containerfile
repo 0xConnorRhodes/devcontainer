@@ -57,10 +57,10 @@ RUN mkdir -m 0755 /nix && chown connor /nix
 # set run context for container
 USER connor
 WORKDIR /home/connor
-RUN sh <(curl -L https://nixos.org/nix/install) --no-daemon --yes
-# RUN curl -L -o /tmp/nix-install.sh https://nixos.org/nix/install
-# RUN chmod +x /tmp/nix-install.sh
-# RUN /tmp/nix-install.sh --no-daemon
+# RUN sh <(curl -L https://nixos.org/nix/install) --no-daemon --yes
+RUN curl -L -o /tmp/nix-install.sh https://nixos.org/nix/install
+RUN chmod +x /tmp/nix-install.sh
+RUN /tmp/nix-install.sh --no-daemon --yes
 RUN nix-env -iA nixpkgs.powershell
 RUN tldr --update
 
