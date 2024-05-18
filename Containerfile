@@ -26,6 +26,7 @@ RUN apt-get install -y \
     # dev tools
     git \
     make \
+    just \
     jq \
     tealdeer \
     hugo \
@@ -52,6 +53,7 @@ RUN useradd -ms /bin/bash connor
 RUN usermod -aG sudo connor
 RUN echo 'connor:changeme' | chpasswd
 
+RUN curl -L -o /opt/bootstrap/install-nix.sh https://nixos.org/nix/install
 COPY bootstrap/* /opt/bootstrap/
 
 # set run context for container
