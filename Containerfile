@@ -51,16 +51,9 @@ RUN useradd -ms /bin/bash connor
 RUN usermod -aG sudo connor
 RUN echo 'connor:changeme' | chpasswd
 
-# create /nix directory explicitly, required by nix install script
-RUN mkdir -m 0755 /nix && chown connor /nix
-
 # set run context for container
 USER connor
 WORKDIR /home/connor
-RUN curl -L -o /tmp/nix-install.sh https://nixos.org/nix/install
-RUN chmod +x /tmp/nix-install.sh
-RUN /tmp/nix-install.sh --no-daemon --yes
-# RUN /usr/bin/fish --command "nix-env -iA nixpkgs.powershell"
 RUN tldr --update
 
 CMD ["/usr/bin/fish"]
