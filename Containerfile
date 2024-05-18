@@ -5,6 +5,9 @@ ENV LC_ALL en_US.UTF-8
 
 USER root
 
+# delete default interactive user
+RUN userdel -r username
+
 RUN apt-get update &&  \
     apt-get full-upgrade -y
 
