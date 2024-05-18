@@ -1,6 +1,6 @@
 FROM ubuntu:latest
 
-RUN apt-get update && 
+RUN apt-get update &&  \
     apt-get full-upgrade -y
 
 # install programs
