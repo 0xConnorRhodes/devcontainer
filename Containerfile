@@ -18,6 +18,12 @@ RUN apt-get install -y \
 	locales \
 	psmisc \
     unzip \
+    # dev tools
+    git \
+    make \
+    jq \
+    tealdeer \
+    hugo \
     # gen workflow
     screen \
     mosh \
@@ -31,10 +37,6 @@ RUN apt-get install -y \
     lf \
     neovim
     
-# clean package list cache
-RUN apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
-
 # set locale
 RUN localedef -i en_US -f UTF-8 en_US.UTF-8
 RUN echo "LANG=$LC_ALL" > /etc/locale.conf
@@ -48,4 +50,7 @@ RUN echo 'connor:changeme' | chpasswd
 # set run context for container
 USER connor
 WORKDIR /home/connor
+
+RUN tldr --update
+
 CMD ["/usr/bin/fish"]
