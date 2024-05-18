@@ -1,0 +1,9 @@
+---
+services:
+  devct:
+    build:
+      context: .
+      dockerfile: Containerfile
+    image: devct
+    container_name: devct
+    hostname: "devct"
