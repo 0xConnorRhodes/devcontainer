@@ -19,6 +19,7 @@ RUN apt-get install -y \
 	psmisc \
     unzip \
    # networking utils
+	iputils-ping \
 	rsync \
 	curl \
 	wget \
