@@ -8,6 +8,7 @@ USER root
 # delete default interactive user
 RUN userdel -r ubuntu
 
+# unimimize to add help docs
 RUN yes | unminimize
 
 RUN apt-get update &&  \
@@ -53,16 +54,24 @@ RUN update-locale
 # add interactive user
 RUN useradd -ms /bin/bash connor
 RUN usermod -aG sudo connor
-RUN echo 'connor:changeme' | chpasswd
+RUN echo 'connor ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
-COPY bootstrap/* /opt/bootstrap/
-RUN wget -O /opt/bootstrap/install-nix.sh https://nixos.org/nix/install
+# COPY bootstrap/* /opt/bootstrap/
+RUN mkdir /opt/bootstrap
+RUN curl -L -o /opt/bootstrap/install-nix.sh https://nixos.org/nix/install
 RUN chmod +x /opt/bootstrap/install-nix.sh
-# RUN curl -L -o /opt/bootstrap/install-nix.sh https://nixos.org/nix/install
 
 # set run context for container
 USER connor
 WORKDIR /home/connor
 RUN tldr --update
+
+# set up nix
+RUN /opt/bootstrap/install-nix.sh
+RUN /home/connor/.nix-profile/bin/nix-env -iA \
+    nixpkgs.powershell
+
+# set up dotfiles
+RUN sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin init --apply 0xConnorRhodes
 
 CMD ["/usr/bin/fish"]
