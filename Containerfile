@@ -13,19 +13,19 @@ RUN apt-get install -y \
     # gen utils
     sudo \
 	locales \
-	psmisc \
-    unzip \
+	# psmisc \
+    # unzip \
     # gen workflow
     screen \
-    mosh \
-    tree \
-    rust-bat \
-    ripgrep \
-    fzf \
-    fd-find \
-    fish \
-    zoxide \
-    lf \
+    # mosh \
+    # tree \
+    # rust-bat \
+    # ripgrep \
+    # fzf \
+    # fd-find \
+    # fish \
+    # zoxide \
+    # lf \
     neovim
     
 # clean package list cache
