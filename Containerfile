@@ -51,6 +51,8 @@ RUN useradd -ms /bin/bash connor
 RUN usermod -aG sudo connor
 RUN echo 'connor:changeme' | chpasswd
 
+COPY bootstrap/* /opt/bootstrap/
+
 # set run context for container
 USER connor
 WORKDIR /home/connor
