@@ -8,6 +8,8 @@ USER root
 # delete default interactive user
 RUN userdel -r ubuntu
 
+RUN yes | unminimize
+
 RUN apt-get update &&  \
     apt-get full-upgrade -y
 
@@ -54,6 +56,8 @@ RUN usermod -aG sudo connor
 RUN echo 'connor:changeme' | chpasswd
 
 COPY bootstrap/* /opt/bootstrap/
+RUN wget -O /opt/bootstrap/install-nix.sh https://nixos.org/nix/install
+RUN chmod +x /opt/bootstrap/install-nix.sh
 # RUN curl -L -o /opt/bootstrap/install-nix.sh https://nixos.org/nix/install
 
 # set run context for container
