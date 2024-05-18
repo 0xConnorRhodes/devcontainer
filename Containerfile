@@ -53,8 +53,8 @@ RUN useradd -ms /bin/bash connor
 RUN usermod -aG sudo connor
 RUN echo 'connor:changeme' | chpasswd
 
-RUN curl -L -o /opt/bootstrap/install-nix.sh https://nixos.org/nix/install
 COPY bootstrap/* /opt/bootstrap/
+RUN curl -L -o /opt/bootstrap/install-nix.sh https://nixos.org/nix/install
 
 # set run context for container
 USER connor
