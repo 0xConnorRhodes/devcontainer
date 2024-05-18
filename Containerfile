@@ -57,9 +57,9 @@ RUN usermod -aG sudo connor
 RUN echo 'connor ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
 # COPY bootstrap/* /opt/bootstrap/
-RUN mkdir /opt/bootstrap
-RUN curl -L -o /opt/bootstrap/install-nix.sh https://nixos.org/nix/install
-RUN chmod +x /opt/bootstrap/install-nix.sh
+# RUN mkdir /opt/bootstrap
+# RUN curl -L -o /opt/bootstrap/install-nix.sh https://nixos.org/nix/install
+# RUN chmod +x /opt/bootstrap/install-nix.sh
 
 # set run context for container
 USER connor
@@ -67,7 +67,10 @@ WORKDIR /home/connor
 RUN tldr --update
 
 # set up nix
-RUN /opt/bootstrap/install-nix.sh
+RUN wget https://nixos.org/nix/install
+RUN chmod +x /home/connor/install
+RUN /home/connor/install --no-daemon --yes
+RUN rm /home/connor/install
 RUN /home/connor/.nix-profile/bin/nix-env -iA \
     nixpkgs.powershell
 
