@@ -51,12 +51,14 @@ RUN useradd -ms /bin/bash connor
 RUN usermod -aG sudo connor
 RUN echo 'connor:changeme' | chpasswd
 
+RUN sh <(curl -L https://nixos.org/nix/install) --daemon --yes
+
 # set run context for container
 USER connor
 WORKDIR /home/connor
 
 # RUN sh <(curl -L https://nixos.org/nix/install)
-RUN sh <(curl -L https://nixos.org/nix/install) --no-daemon --yes
+# RUN sh <(curl -L https://nixos.org/nix/install) --no-daemon --yes
 # RUN curl -L -o /tmp/nix-install.sh https://nixos.org/nix/install
 # RUN chmod +x /tmp/nix-install.sh
 # RUN /tmp/nix-install.sh --no-daemon
