@@ -55,7 +55,8 @@ RUN echo 'connor:changeme' | chpasswd
 USER connor
 WORKDIR /home/connor
 
-RUN sh <(curl -L https://nixos.org/nix/install)
+# RUN sh <(curl -L https://nixos.org/nix/install)
+RUN sh <(curl -L https://nixos.org/nix/install) --no-daemon --yes
 # RUN curl -L -o /tmp/nix-install.sh https://nixos.org/nix/install
 # RUN chmod +x /tmp/nix-install.sh
 # RUN /tmp/nix-install.sh --no-daemon
