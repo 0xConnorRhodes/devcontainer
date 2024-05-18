@@ -18,6 +18,10 @@ RUN apt-get install -y \
 	locales \
 	psmisc \
     unzip \
+   # networking utils
+	rsync \
+	curl \
+	wget \
     # dev tools
     git \
     make \
