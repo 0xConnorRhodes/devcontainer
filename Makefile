@@ -2,6 +2,7 @@ all: build shell
 
 run:
 	docker compose down && docker compose up -d
+	docker exec -it devct-dev /usr/bin/fish
 
 rebuild: clean clean-build shell
 

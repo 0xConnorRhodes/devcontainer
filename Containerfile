@@ -24,12 +24,13 @@ RUN apt-get install -y \
 	rsync \
 	curl \
 	wget \
-    # dev tools
+    # dev
     git \
     make \
     just \
     jq \
     tealdeer \
+    lua5.4 \
     # gen workflow
     screen \
     mosh \
@@ -65,7 +66,7 @@ USER connor
 WORKDIR /home/connor
 RUN tldr --update
 
-# set up dotfiles
+# install chezmoi (dotfiles deployed in bootstrap/entrypoint.sh)
 RUN sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
 
 ENTRYPOINT ["/opt/bootstrap/entrypoint.sh"]
