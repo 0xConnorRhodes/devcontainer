@@ -4,6 +4,12 @@
 # deploy dotfiles
 /home/connor/.local/bin/chezmoi init --apply 0xConnorRhodes
 
+# edit chezmoi git config to push using ssh
+file_path="/home/connor/.local/share/chezmoi/.git"
+search_string="    url = https://github.com/0xConnorRhodes/dotfiles.git"
+replace_string="    url = git@github.com:0xConnorRhodes/dotfiles.git"
+sed -i "s|$search_string|$replace_string|" "$file_path"
+
 # generate ssh key if it does not already exist in ~/.ssh
 KEY_PATH="$HOME/.ssh/id_ed25519"
 MACHINE=$(hostname)
