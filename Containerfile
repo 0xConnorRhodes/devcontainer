@@ -56,6 +56,10 @@ RUN echo 'connor ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 COPY bootstrap/* /opt/bootstrap/
 RUN /opt/bootstrap/install-powershell.sh
 
+# set persistent volume permissions
+RUN mkdir /home/connor/.ssh && chown -R connor:connor /home/connor/.ssh
+RUN mkdir /home/connor/code && chown -R connor:connor /home/connor/code
+
 # set run context for container
 USER connor
 WORKDIR /home/connor
