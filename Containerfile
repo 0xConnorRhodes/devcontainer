@@ -63,6 +63,7 @@ RUN /opt/bootstrap/install-powershell.sh
 # set persistent volume permissions
 RUN mkdir /home/connor/.ssh && chown -R connor:connor /home/connor/.ssh
 RUN mkdir /home/connor/code && chown -R connor:connor /home/connor/code
+RUN mkdir -p /home/connor/.local/share/zoxide && chown -R connor:connor /home/connor/.local 
 
 # set run context for container
 USER connor
