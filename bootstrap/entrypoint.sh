@@ -1,6 +1,7 @@
 #!/bin/sh
 # script runs as nonroot user
 
+# deploy dotfiles
 /home/connor/.local/bin/chezmoi init --apply 0xConnorRhodes
 
 # generate ssh key if it does not already exist in ~/.ssh
@@ -11,4 +12,5 @@ if [ ! -f "$KEY_PATH" ]; then
     echo 'generated new ssh key' >> $HOME/init-log.txt
 fi
 
+# infinite task to hold container open so shell sessions can be attached
 sh -c "tail -f /dev/null"
