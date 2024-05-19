@@ -66,6 +66,6 @@ WORKDIR /home/connor
 RUN tldr --update
 
 # set up dotfiles
-RUN sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin init --apply 0xConnorRhodes
+RUN sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
 
-CMD ["/usr/bin/fish"]
+ENTRYPOINT ["/opt/bootstrap/entrypoint.sh"]
