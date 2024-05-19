@@ -18,12 +18,12 @@ RUN apt-get update &&  \
 RUN apt-get install -y \
     # gen utils
     sudo \
-	locales \
-   # networking utils
-	iputils-ping \
-	rsync \
-	curl \
-	wget \
+    locales \
+    # networking utils
+    iputils-ping \
+    rsync \
+    curl \
+    wget \
     # dev
     git \
     make \
@@ -31,6 +31,12 @@ RUN apt-get install -y \
     jq \
     tealdeer \
     lua5.4 \
+    # python
+    python3 \
+    python3-pip \
+    python3-venv \
+    pipx \
+    bpython \
     # gen workflow
     screen \
     mosh \
