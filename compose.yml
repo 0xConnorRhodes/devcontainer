@@ -4,6 +4,7 @@ services:
     build:
       context: .
       dockerfile: Containerfile
-    image: devct
-    container_name: devct
-    hostname: "devct"
+    image: devct-dev
+    container_name: devct-dev
+    hostname: "devct-dev"
+    command: sh -c "tail -f /dev/null"

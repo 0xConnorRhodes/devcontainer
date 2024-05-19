@@ -12,6 +12,7 @@ clean:
 
 clean-build:
 	docker compose build --no-cache
+	docker compose up -d
 
 build:
 	docker container rm -f devct
@@ -20,4 +21,4 @@ build:
 
 
 shell:
-	docker run -it devct
+	docker exec -it devct-dev /usr/bin/fish
