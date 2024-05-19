@@ -4,9 +4,15 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'Containerfile'
+      - 'bootstrap/**'
   pull_request:
     branches:
       - main
+    paths:
+      - 'Containerfile'
+      - 'bootstrap/**'
   schedule:
     - cron: "0 0 * * *"
 
