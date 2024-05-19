@@ -18,5 +18,8 @@ if [ ! -f "$KEY_PATH" ]; then
     echo 'generated new ssh key' >> $HOME/init-log.txt
 fi
 
+# update fish shell completions (needec because they are persistent on a bind mount)
+fish -c fish_update_completions
+
 # infinite task to hold container open so shell sessions can be attached
 sh -c "tail -f /dev/null"

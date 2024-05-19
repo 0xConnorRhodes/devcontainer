@@ -14,7 +14,7 @@ clean:
 clean-build:
 	docker compose build --no-cache
 	docker compose up -d
-	sleep 3
+	sleep 30
 
 build:
 	docker container rm -f devct-dev
