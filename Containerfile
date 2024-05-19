@@ -71,7 +71,6 @@ RUN mkdir /home/connor/.ssh && chown -R connor:connor /home/connor/.ssh
 RUN mkdir /home/connor/code && chown -R connor:connor /home/connor/code
 RUN mkdir -p /home/connor/.local/share/zoxide && chown -R connor:connor /home/connor/.local 
 RUN mkdir -p /home/connor/.local/share/fish && chown -R connor:connor /home/connor/.local 
-RUN mkdir -p /persistent && chown -R connor:connor /persistent 
 
 # set run context for container
 USER connor
