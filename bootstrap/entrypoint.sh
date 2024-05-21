@@ -21,7 +21,7 @@ fi
 # update fish shell completions (needec because they are persistent on a bind mount)
 fish -c fish_update_completions
 
-sudo touch /opt/bootstrap/boot-finished
+sudo touch /opt/bootstrap/startup-finished
 
 # infinite task to hold container open so shell sessions can be attached
 sh -c "tail -f /dev/null"
