@@ -21,6 +21,7 @@ RUN apt-get install -y \
     locales \
     # networking utils
     iputils-ping \
+    iproute2 \
     rsync \
     curl \
     wget \
