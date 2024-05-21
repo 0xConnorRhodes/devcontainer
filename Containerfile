@@ -31,6 +31,7 @@ RUN apt-get install -y \
     jq \
     tealdeer \
     lua5.4 \
+    hugo \
     # python
     python3 \
     python3-pip \
