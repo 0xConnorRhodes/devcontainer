@@ -3,7 +3,6 @@
 
 # deploy dotfiles
 /home/connor/.local/bin/chezmoi init --apply 0xConnorRhodes
-echo 'Deployed dotfiles'
 
 # edit chezmoi git config to push using ssh
 cm_file_path="/home/connor/.local/share/chezmoi/.git/config"
@@ -17,12 +16,10 @@ MACHINE=$(hostname)
 if [ ! -f "$KEY_PATH" ]; then
     ssh-keygen -a 100 -t ed25519 -f $HOME/.ssh/id_ed25519 -C "connor@$MACHINE"
     echo 'generated new ssh key' >> $HOME/init-log.txt
-    echo 'Generated SSH Key'
 fi
 
 # update fish shell completions (needec because they are persistent on a bind mount)
 fish -c fish_update_completions
-echo 'Updated fish completions'
 
 sudo touch /opt/bootstrap/startup-finished
 
