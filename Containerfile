@@ -56,8 +56,8 @@ RUN apt-get install -y \
 RUN apt-get autoremove
 
 # symlink programs that have different paths on ubuntu
-RUN ln -s /usr/bin/batcat /usr/bin/bat
-RUN ln -s /usr/bin/fdfind /usr/bin/fd
+RUN ln -s /usr/bin/batcat /usr/local/bin/bat
+RUN ln -s /usr/bin/fdfind /usr/local/bin/fd
     
 # set locale
 RUN localedef -i en_US -f UTF-8 en_US.UTF-8
