@@ -73,6 +73,7 @@ COPY bootstrap/* /opt/bootstrap/
 RUN /opt/bootstrap/install-powershell.sh
 
 # set persistent volume permissions
+RUN mkdir /out && chown -R connor:connor /out
 RUN mkdir /persistent && chown -R connor:connor /persistent
 RUN mkdir /home/connor/.ssh && chown -R connor:connor /home/connor/.ssh
 RUN mkdir /home/connor/code && chown -R connor:connor /home/connor/code
