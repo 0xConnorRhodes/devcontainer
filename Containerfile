@@ -25,6 +25,7 @@ RUN apt-get install -y \
     rsync \
     curl \
     wget \
+    unzip \
     # dev
     git \
     make \
