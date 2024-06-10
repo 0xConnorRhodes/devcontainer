@@ -39,7 +39,6 @@ RUN apt-get install -y \
     python3-pip \
     python3-venv \
     pipx \
-    bpython \
     # gen workflow
     screen \
     mosh \
@@ -55,6 +54,10 @@ RUN apt-get install -y \
     neovim
 
 RUN apt-get autoremove
+
+RUN pipx install \
+    bpython \
+    ipython
 
 # symlink programs that have different paths on ubuntu
 RUN ln -s /usr/bin/batcat /usr/local/bin/bat
