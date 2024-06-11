@@ -55,10 +55,6 @@ RUN apt-get install -y \
 
 RUN apt-get autoremove
 
-RUN pipx install \
-    bpython \
-    ipython
-
 # symlink programs that have different paths on ubuntu
 RUN ln -s /usr/bin/batcat /usr/local/bin/bat
 RUN ln -s /usr/bin/fdfind /usr/local/bin/fd
@@ -88,6 +84,11 @@ RUN mkdir -p /home/connor/.local/share/fish && chown -R connor:connor /home/conn
 USER connor
 WORKDIR /home/connor
 RUN tldr --update
+
+# install pipx packages
+RUN pipx install \
+    bpython \
+    ipython
 
 # install chezmoi (dotfiles deployed in bootstrap/entrypoint.sh)
 RUN sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
