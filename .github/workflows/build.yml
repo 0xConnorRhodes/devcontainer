@@ -15,6 +15,7 @@ on:
       - 'bootstrap/**'
   schedule:
     - cron: "0 2 * * 5" # weekly on friday 2am UTC
+  workflow_dispatch:
 
 env:
   REGISTRY: ghcr.io
