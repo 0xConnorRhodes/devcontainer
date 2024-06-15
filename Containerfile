@@ -90,9 +90,6 @@ RUN pipx install \
     bpython \
     ipython
 
-# bootstrap PowerShell
-RUN /opt/bootstrap/bootstrap-powershell.ps1
-
 # install chezmoi (dotfiles deployed in bootstrap/entrypoint.sh)
 RUN sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
 

@@ -16,6 +16,12 @@ on:
   schedule:
     - cron: "0 2 * * 5" # weekly on friday 2am UTC
   workflow_dispatch:
+    inputs:
+    debug_enabled:
+      type: boolean
+      description: 'Run the build with tmate debugging enabled (https://github.com/marketplace/actions/debugging-with-tmate)'
+      required: false
+      default: false
 
 env:
   REGISTRY: ghcr.io
@@ -52,6 +58,15 @@ jobs:
           tags: |
             type=ref,event=branch
             type=sha
+
+      - name: download verkadaModule
+        shell: pwsh
+        run: |
+          Save-Module -Name verkadaModule
+
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.debug_enabled }}
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v4
