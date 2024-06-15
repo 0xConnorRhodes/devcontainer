@@ -17,11 +17,11 @@ on:
     - cron: "0 2 * * 5" # weekly on friday 2am UTC
   workflow_dispatch:
     inputs:
-    debug_enabled:
-      type: boolean
-      description: 'Run the build with tmate debugging enabled (https://github.com/marketplace/actions/debugging-with-tmate)'
-      required: false
-      default: false
+      debug_enabled:
+        type: boolean
+        description: 'Run the build with tmate debugging enabled (https://github.com/marketplace/actions/debugging-with-tmate)'
+        required: false
+        default: false
 
 env:
   REGISTRY: ghcr.io
