@@ -19,7 +19,7 @@ on:
     inputs:
       debug_enabled:
         type: boolean
-        description: 'Run the build with tmate debugging enabled (https://github.com/marketplace/actions/debugging-with-tmate)'
+        description: 'debug with tmate'
         required: false
         default: false
 
@@ -77,8 +77,8 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          platforms: linux/amd64
-         #platforms: linux/amd64,linux/arm64
+         #platforms: linux/amd64
+          platforms: linux/amd64,linux/arm64
 
       - name: Logout from GitHub Container Registry
         run: docker logout ghcr.io
