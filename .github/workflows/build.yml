@@ -62,8 +62,8 @@ jobs:
       - name: download verkadaModule
         shell: pwsh
         run: |
-          New-Item -Path "$HOME\psModules" -ItemType "Directory"
-          Save-Module -Name verkadaModule -Path "$HOME/psModules"
+          New-Item -Path "/home/runner/work/devcontainer/devcontainer/psModules" -ItemType "Directory"
+          Save-Module -Name verkadaModule -Path "/home/runner/work/devcontainer/devcontainer/psModules"
 
       - name: Setup tmate session
         uses: mxschmitt/action-tmate@v3
