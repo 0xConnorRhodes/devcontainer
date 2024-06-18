@@ -85,7 +85,7 @@ RUN mkdir -p /home/connor/.local/share/fish && chown -R connor:connor /home/conn
 USER connor
 WORKDIR /home/connor
 RUN tldr --update
-RUN /opt/bootstrap/install-vscode-dependencies.sh
+RUN /opt/bootstrap/install-vscode-dependencies.sh "linux"
 
 # install pipx packages
 RUN pipx install \
