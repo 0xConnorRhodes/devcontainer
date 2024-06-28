@@ -26,6 +26,7 @@ RUN apt-get install -y \
     curl \
     wget \
     unzip \
+    ffmpeg \
     # dev
     git \
     make \
