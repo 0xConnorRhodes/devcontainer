@@ -2,9 +2,10 @@
 # script runs as nonroot user
 
 # deploy dotfiles
-CHEZMOI_DIR="$HOME/.local/share/chezmoi"
+CHEZMOI_DIR="/home/connor/.local/share/chezmoi"
 if [ ! -d "$CHEZMOI_DIR" ]; then
     # if the chezmoi directory does not exist, clone dotfiles and apply
+    sudo chown -R 1000:1000 /home/connor/.local/bin/chezmoi
     /home/connor/.local/bin/chezmoi init --apply 0xConnorRhodes
 
     # edit chezmoi git config to push using ssh
