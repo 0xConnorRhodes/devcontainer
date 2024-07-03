@@ -12,6 +12,8 @@ if [ ! -d "$CHEZMOI_DIR" ]; then
     cm_old_string="https://github.com/0xConnorRhodes/dotfiles.git"
     cm_new_string="git@github.com:0xConnorRhodes/dotfiles.git"
     sed -i "s|$cm_old_string|$cm_new_string|g" "$cm_file_path"
+
+    touch $HOME/new-chezmoi
 else
     /home/connor/.local/bin/chezmoi apply
 fi
