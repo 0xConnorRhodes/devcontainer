@@ -2,8 +2,9 @@
 # script runs as nonroot user
 
 # deploy dotfiles
-CHEZMOI_DIR="/home/connor/.local/share/chezmoi"
-if [ ! -d "$CHEZMOI_DIR" ]; then
+if [ -f "/home/connor/.local/share/chezmoi/README.md" ]; then
+    /home/connor/.local/bin/chezmoi apply
+else
     # if the chezmoi directory does not exist, clone dotfiles and apply
     sudo chown -R 1000:1000 /home/connor/.local/bin/chezmoi
     /home/connor/.local/bin/chezmoi init --apply 0xConnorRhodes
@@ -13,9 +14,8 @@ if [ ! -d "$CHEZMOI_DIR" ]; then
     cm_old_string="https://github.com/0xConnorRhodes/dotfiles.git"
     cm_new_string="git@github.com:0xConnorRhodes/dotfiles.git"
     sed -i "s|$cm_old_string|$cm_new_string|g" "$cm_file_path"
-else
-    /home/connor/.local/bin/chezmoi apply
 fi
+
 
 
 
