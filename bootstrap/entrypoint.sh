@@ -2,13 +2,21 @@
 # script runs as nonroot user
 
 # deploy dotfiles
-/home/connor/.local/bin/chezmoi init --apply 0xConnorRhodes
+CHEZMOI_DIR="$HOME/.local/share/chezmoi"
+if [ ! -d "$CHEZMOI_DIR" ]; then
+    # if the chezmoi directory does not exist, clone dotfiles and apply
+    /home/connor/.local/bin/chezmoi init --apply 0xConnorRhodes
 
-# edit chezmoi git config to push using ssh
-cm_file_path="/home/connor/.local/share/chezmoi/.git/config"
-cm_old_string="https://github.com/0xConnorRhodes/dotfiles.git"
-cm_new_string="git@github.com:0xConnorRhodes/dotfiles.git"
-sed -i "s|$cm_old_string|$cm_new_string|g" "$cm_file_path"
+    # edit chezmoi git config to push using ssh
+    cm_file_path="/home/connor/.local/share/chezmoi/.git/config"
+    cm_old_string="https://github.com/0xConnorRhodes/dotfiles.git"
+    cm_new_string="git@github.com:0xConnorRhodes/dotfiles.git"
+    sed -i "s|$cm_old_string|$cm_new_string|g" "$cm_file_path"
+else
+    /home/connor/.local/bin/chezmoi apply
+fi
+
+
 
 # generate ssh key if it does not already exist in ~/.ssh
 KEY_PATH="$HOME/.ssh/id_ed25519"
