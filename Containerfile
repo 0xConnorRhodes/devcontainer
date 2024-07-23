@@ -61,6 +61,8 @@ RUN apt-get install -y \
 
 RUN apt-get autoremove
 
+RUN curl https://rclone.org/install.sh | bash
+
 # symlink programs that have different paths on ubuntu
 RUN ln -s /usr/bin/batcat /usr/local/bin/bat
 RUN ln -s /usr/bin/fdfind /usr/local/bin/fd
