@@ -40,6 +40,11 @@ RUN apt-get install -y \
     python3-pip \
     python3-venv \
     pipx \
+    # rust
+    pkg-config \
+    libssl-dev \
+    build-essential \
+    rustup \
     # gen workflow
     screen \
     mosh \
