@@ -63,6 +63,9 @@ RUN apt-get autoremove
 
 RUN curl https://rclone.org/install.sh | bash
 
+RUN rustup default stable
+RUN cargo install nu --root /usr/local
+
 # symlink programs that have different paths on ubuntu
 RUN ln -s /usr/bin/batcat /usr/local/bin/bat
 RUN ln -s /usr/bin/fdfind /usr/local/bin/fd
