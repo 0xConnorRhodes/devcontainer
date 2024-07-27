@@ -16,8 +16,11 @@ else
     sed -i "s|$cm_old_string|$cm_new_string|g" "$cm_file_path"
 fi
 
-
-
+if [ ! -e "$HOME/notes" ]; then
+  if [ -d "/nmount/zk_notes" ]; then
+    ln -s /nmount/zk_notes "$HOME/notes"
+  fi
+fi
 
 # generate ssh key if it does not already exist in ~/.ssh
 KEY_PATH="$HOME/.ssh/id_ed25519"
