@@ -4,10 +4,12 @@
 # deploy dotfiles
 if [ -f "/home/connor/.local/share/chezmoi/README.md" ]; then
     /home/connor/.local/bin/chezmoi apply
+    /home/connor/.local/bin/chezmoi apply
 else
     # if the chezmoi directory does not exist, clone dotfiles and apply
     sudo chown -R 1000:1000 /home/connor/.local/bin/chezmoi
     /home/connor/.local/bin/chezmoi init --apply 0xConnorRhodes
+    /home/connor/.local/bin/chezmoi apply
 
     # edit chezmoi git config to push using ssh
     cm_file_path="/home/connor/.local/share/chezmoi/.git/config"
@@ -32,6 +34,7 @@ fi
 
 # update fish shell completions (needec because they are persistent on a bind mount)
 fish -c fish_update_completions
+
 
 sudo touch /opt/bootstrap/startup-finished
 
