@@ -25,8 +25,6 @@ RUN apt-get install -y \
     rsync \
     curl \
     wget \
-    unzip \
-    ffmpeg \
     # dev
     git \
     make \
@@ -46,6 +44,9 @@ RUN apt-get install -y \
     build-essential \
     rustup \
     # gen workflow
+    unzip \
+    ffmpeg \
+    mediainfo \
     screen \
     mosh \
     tree \
