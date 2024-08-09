@@ -106,6 +106,10 @@ RUN pipx install \
     bpython \
     ipython
 
+RUN pip install \
+    pyfzf \
+    --break-system-packages
+
 # install chezmoi (dotfiles deployed in bootstrap/entrypoint.sh)
 RUN sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
 
