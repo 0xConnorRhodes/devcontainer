@@ -13,8 +13,8 @@ on:
     paths:
       - 'Containerfile'
       - 'bootstrap/**'
-  schedule:
-    - cron: "0 2 * * 5" # weekly on friday 2am UTC
+ #schedule:
+ #  - cron: "0 2 * * 5" # weekly on friday 2am UTC
   workflow_dispatch:
     inputs:
       debug_enabled:
